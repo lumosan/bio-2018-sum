@@ -31,28 +31,95 @@
     \subsubsection*{01. Fingerprint}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item Friction skin (hairless, many sweat glands...). \emph{Biological} (physiological) characteristic. \emph{Applications} in security and forensics. \emph{Characteristics}: permanent (except for desease, scarring...), unique (even with same DNA).
+        \item \emph{Galton's details} -- It suffices if 12 points are the same between two fingerprints.
+        \item \textbf{Lights-out identification} -- system requiring minimal or zero human assistance that outputs a short candidate list.
+        \item India Universal ID System with Biometrics -- \emph{To give the poor an identity}
+        \item \textbf{Fake finger} (spoof attack) -- Gelatin, Silicone, Latex.
       \end{itemize}
 
-      \textbf{Sensing}:
+      \textbf{Sensing}: Optical, capacitive, ultrasonic...
       \begin{itemize}
-        \item 
+        \item \emph{On-line acquisition} -- Optical, Capacitive, Piezoelectric scanners. Single- or multi-finger
+        \item \emph{Off-line acquisition} -- Thermal scanner, Inked impression, Latent fingerprint.
+        \item Others: touchless (TBS The Surround Imager; Finger On The Fly), acquisition of derma image (internal fingerprint, more reliability).
       \end{itemize}
 
-      \textbf{Feature extraction}:
+      \textbf{Feature extraction}: (level 1, 2 (minutiae) and 3 features)
       \begin{itemize}
-        \item 
+        \item Minutiae: Ridge bifurcations, endings, ... (52 types)
+        \item Core: Uppermost point on innermost ridge
+        \item Delta: Separating point between pattern and non-pattern areas
+        \item Pattern class: Determined by ridge flow characteristics.
+        \item\textbf{Feature Levels}:
+        \begin{itemize}
+          \item \textbf{Level 1 -- singularities (core points)}: Core and delta points. Classification (left loop, right loop, whorl, arch, tented arch). Ridges (\emph{flow} can be described with \emph{directional map}; line density can be described with \emph{density map})
+          \begin{itemize}
+            \item \textbf{Average Square Gradient Method}: Gradient vector lengths are squared and their angles doubled.
+            \item Noisy fingerprint $\rightarrow$ \emph{Local structure} for matching is very difficult, but \emph{global structure} is more stable.
+          \end{itemize}
+          \item \textbf{Level 2 -- Minutiae (major ridge path deviations)}: Ridge ending, Bifurcation, Valley, Lake, Independent Ridge, Point, Spur, Crossover.
+          \item \textbf{Level 3 -- Intrinsic or innate ridge formations}: Sweat pores, incipient ridges, creases...
+        \end{itemize}
       \end{itemize}
 
-      \textbf{Templates}:
+      \textbf{Templates}: (minutia coordinates and local ridge orientation, Delaunay triangulation and triangular matching)
       \begin{itemize}
-        \item 
+        \item \textbf{Segmentation} (Isolate foreground from background)
+        \item \textbf{Normalisation} (Mean 0 and variance 1, to standardise image intensity values)
+        \item \textbf{Orientation image} (Computation of gradients over square-meshed grid)
+        \item \textbf{Frequency image} (Ridge frequency)
+        \item \textbf{Automatic Minutiae Detection}
+        \begin{enumerate}
+          \item Binarization
+          \item Thinning
+          \item Crossing number (Detection of minutiae)
+        \end{enumerate}
+        \item \textbf{Fingerprint enhancement -- Gabor filtering}: Contextual filters (characteristics change according to local context), context defined by local ridge orientation and frequency. Efficiently removes undesired noise preserving ridges and valleys.
+        \item \textbf{Fourier Analysis} -- Interpreting the spectrum; alternate representation of the signal, providing more information. Filtering and convolution become trivial.
+        \begin{itemize}
+          \item Energy map
+          \item Frequency map
+          \item Orientation map
+          \item Fourier Domain Based Enhancement
+        \end{itemize}
+        \item \textbf{Pre-alignment}:
+        \begin{itemize}
+          \item Absolute pre-alignment -- w.r.t. core and delta points. First align usign global structure, then use loca lstru  for point-to-point matching.
+          \item Relative pre-alignment -- superimposing singularities, correlating orientation images, correlating ridge features.
+        \end{itemize}
+        \item \textbf{Match Score Generation}
+        \item \textbf{Triangular matching} -- Delaunay triangulation creates a set of triangles such that triangles don't contain any other minutiae points.
       \end{itemize}
 
       \textbf{Matching (comparison)}:
       \begin{itemize}
-        \item 
+        \item \textbf{Fingerprint Matching}:
+        \begin{itemize}
+          \item \emph{Correlation-based} -- Correlation between pixels computed for different alignments. Non-linear distortion and missalignments makes the correlation very difficult. Direct application of 2D correlation is very expensive computationally.
+          \item \emph{Minutiae-based} -- Find the alignment that results in maximum number of minutiae pairings. Minutia Cylinder Code (MCC). Time consuming.
+          \begin{itemize}
+            \item MCC is computationally fast, easy bit-based implementation, invariant to rotation and translation.
+          \end{itemize}
+          \item \emph{Ridge feature-based} -- size and shape of fingerprint, number type and position of singularities, sweat pores, local orientation and frequency, ridge shape... FingerCode. \textbf{Gabor filter responses}.
+          \begin{itemize}
+            \item \emph{Texture-based Representation} -- Ridge pattern in fingerprint is seen as an oriented texture pattern with fixed dominant spatial frequency and orientation in a local neighborhood.
+            \item \emph{Local texture patterns -- Local Binary Patterns LBPs}
+          \end{itemize}
+          \item \textbf{Hybrid}
+        \end{itemize}
+        \item \textbf{Intra-variability} -- Variations in impressions of one same finger. Overlap, displacement, rotation, non-linear distortion (because finger is 3D), pressure, skin condition, noise, \emph{feature extraction errors}.
+        \begin{itemize}
+          \item \emph{Feature extraction errors}: Aggresive enhancement, low-quality images...
+        \end{itemize}
+        \item \textbf{Local Clarity Score (LCS)} -- computes the block wise clarity of ridge and valleys by applying linear regression to determine a gray-level threshold, classifying pixels as ridge or valley.
+        \begin{itemize}
+          \item Minutiae + Local Correlation
+          \item Minutiae + Local Binary Pattern (LBP) Histogram
+        \end{itemize}
       \end{itemize}
+
+      \textbf{Synthetic Fingerprint Generation}: To automatically create large databases of fingerprints, allowing to train test optimize and compare algorithms. Collecting fingerprints is expensive (money and time) and problematic (privacy legislation).
     \subsubsection*{02. Face (2D and 3D)}
       \textbf{Generalities}:
       \begin{itemize}
@@ -81,7 +148,7 @@
     \subsubsection*{03. Iris}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item Biological.
       \end{itemize}
 
       \textbf{Sensing}:
@@ -273,14 +340,14 @@
         \item \textbf{On-line} or \textbf{Dynamic} -- written with electronic device. Dynamic information (pen tip location through time) usually available at high resolution, even if pen not in contact with paper.
       \end{itemize}
 
-      \textbf{Sensing}:
+      \textbf{Sensing}: Multivariate sensing
       \begin{itemize}
         \item Tablets, smartphones, IKEA's and Sunrise's SignPad, UPS and SwissPost...
       \end{itemize}
 
       \textbf{Feature extraction}:
       \begin{itemize}
-        \item Basic (Local) Features:
+        \item \textbf{Basic (Local) Features:}
         \begin{enumerate}
           \item X, Y coordinates
           \item Velocity
@@ -290,7 +357,7 @@
           \item Pressure
           \item First and second derivatives of feature
         \end{enumerate}
-        \item Global features (more than 150)
+        \item \textbf{Global features (more than 150)}
         \begin{itemize}
           \item Signature length, height, weight
           \item Total signature time
@@ -301,7 +368,11 @@
         \item Forgery: Zero-effort; Home-improved (based on static image); Over-the-shoulder (observe signing); Professional (skilled individuals). Over-the-shoulder + Home-improved combo is called \emph{skilled}.
       \end{itemize}
 
-      \textbf{Templates} (Models are DTW, GMM and HMM)
+      \textbf{Templates}
+      \begin{itemize}
+        \item \emph{Models of Features for Recognition and Classification} are DTW, GMM, HMM chain with discrete distribution of observation probabilities, Continuous Density HMM (CDHMM), Viterbi algorithm for maximal probability scoring)
+        \item \emph{Enrolment and Template Creation}: Baum-Welch algorithm for re-estimation of HMM chain parameters.
+      \end{itemize}
 
       \textbf{Matching (comparison)}:
       \begin{itemize}
@@ -664,6 +735,10 @@
         \end{enumerate}
       \end{itemize}
     \subsubsection*{12. Forensic Biometrics (Fingerprints, Face, DNA, Ear, Gait)}
+    \begin{itemize}
+      \item \textbf{Fingerprints}: $$LR = \frac{p(\text{evidence}|H_p)}{p(\text{evidence}|H_d)}$$
+      with $H_p$ (suspect left the fingerprint), $H_d$ (someone else left the fingerprint), numerator (variability of minutiae configurations due to distortion and clarity), denominator (variability between minutiae from different sources). Delaunay triangulation, MCC and Local Quality Measures (embedding quality measures), ridge quality maps are used.
+    \end{itemize}
     \subsubsection*{13. Biometric Standards}
     \subsubsection*{14. Securing Biometric Data and Biometric Encryption}
     \subsubsection*{15. Biometrics in Identity Documents}
