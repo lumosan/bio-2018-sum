@@ -1,0 +1,792 @@
+%!TEX root = report.tex
+\documentclass[a4paper]{article}
+\input{_core.tex}
+
+\usepackage{parskip}
+
+\addbibresource{mybib.bib}
+
+% Global variables
+  \newcommand{\HWTitle}{Biometrics}
+  \newcommand{\HWSubtitle}{Summary}
+  \newcommand{\HWDueDate}{\today}
+  \newcommand{\HWAuthorName}{Lucía Montero Sanchis}
+  \title{\vspace{-.25cm} \HWTitle \\ \vspace{.25cm}}
+  %\date{\HWDueDate}
+  \author{\HWAuthorName}
+
+\begin{document}
+\maketitle
+
+\section*{Question 1 -- Leading Biometric Technology} % (fold)
+\label{sec:question_1}
+  %\begin{itemize}
+    %\item Sensing
+    %\item Feature extraction
+    %\item Templates
+    %\item Matching (comparison)
+  %\end{itemize}
+
+  \subsection*{Physiological Characteristics}
+    \subsubsection*{01. Fingerprint}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+    \subsubsection*{02. Face (2D and 3D)}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+    \subsubsection*{03. Iris}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+    \subsubsection*{04. Periocular, Retina, Ear}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+    \subsubsection*{05. Hand Geometry}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+    \subsubsection*{06. Palmprint and Palm Veins}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \subsection*{Behavioral Characteristics}
+    \subsubsection*{07. Voice (02, 03)}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item \textbf{Voice biometric} combines physiological and behavioral characteristics. Useful for remote-access transactions over telecommunication networks. Voice is subject to many sources of variability.
+        \item \textbf{Disambiguation} -- Voice recognition can refer to \emph{Speaker recognition} (who is speaking) or \emph{Speech recognition} (what is being said).
+        \item \textbf{Perceptual Cues}: \emph{High-level} (learned behaviors -- Semantic, Dialogic, Idiolectal that depend on status, education, place of birth) vs \emph{Low-level} (physical characteristics -- Spectral, Prosodic, Phonetic that depend on anatomical structure)
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item \textbf{Microphones} (e.g. in smartphones)
+        \item \textbf{Speech signal} is real, continuous, non-stationary, 4-dimensional (4D), has finite energy. It's complex and variable over time. Sometimes periodic (pseudo-periodic) for voiced sounds; Sometimes random for fricative sounds; Sometimes impulsive in explosive phases of occlusive sounds.
+        \item \textbf{Bandwidth} -- Frequency Band of Telephone Speech: 300 Hz -- 3.4 kHz
+        \item \textbf{Coding Bands}:
+        \begin{itemize}
+          \item Hi-Fi: 20 Hz -- 20 kHz (sampling frequency 44.1 kHz)
+          \item Wideband: 50 Hz -- 7 kHz (sampling frequency 16 kHz)
+          \item Narrow band: 300 Hz -- 3.4 kHz (sampling frequency 8 kHz)
+        \end{itemize}
+        \item \textbf{Sampling} and Uniform \textbf{Quantization}: \todo[inline]{}
+      \end{itemize}
+
+      \begin{figure}[htp]
+        \centering
+          \includegraphics[width=.85\textwidth]{spk.png}
+          \caption{Enrolment and Scoring in Speaker Recognition}
+          \label{fig:spk}
+      \end{figure}
+
+      \textbf{Feature extraction}: Spectral envelope, MFCC \todo[inline]{this??}
+      \begin{itemize}
+        \item \textbf{Mel-Frequency Cepstral Coefficients (MFCCs)}: Mel-Frequency Cepstrum (MFC) is a representation of spectral energy of a sound on the mel scale, and is made up by the MFCCs (coefficients). In an MFC the frequency bands approximates the human auditory system's response -- better representation of sound.
+        \begin{itemize}
+          \item GMMs are used to capture the distribution of MFCCs in the feature space.
+          \item We enroll a speaker by adapting the UBM using the speaker's input.
+          \item Are obtained through FFT (Short-term transform), Logarithm, Deconvolution source/tract (cepstre). The acoustic vector consists of cepstrum, delta-cepstrum and delta-delta-cepstrum
+          \item \textbf{Short-Term Feature Extraction}: \todo[inline]{Window, frame, feature vector (acoustic vector)}
+          \item \textbf{Short-term Processing}: \todo[inline]{window N, frame M, window and frame duration definitions}
+          \item \textbf{Short-term DFT} 
+          \item \textbf{Spectral envelope} \todo[inline]{(+spectrogram)}
+          \item \textbf{Real Cepstrum}
+          \item \textbf{Dynamic features}
+        \end{itemize}
+        \item Recent research on supervectors and i-vectors.
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item \textbf{Template} is a compact, electronic representation of a biometric sample that is created at the time of enrollment and stored in the system database for future reference and comparison. The process of creating a template and storing it in the database is called \emph{enrollment}.
+        \item \textbf{Speech Modalities}:
+        \begin{itemize}
+          \item \emph{Text-dependent}: System knows text spoken (e.g. find fixed phrase, prompted phrase). Used for strong control over user input. Improved system performance.
+          \item \emph{Text-independent}: Not know text spoken (e.g. conversation). Less control over user input. More flexible and more difficult.
+        \end{itemize}
+        \item \textbf{Vector Quantization} \todo[inline]{explain VQ}
+      \end{itemize}
+
+        \begin{table}[htp]
+          \centering
+          %\renewcommand{\arraystretch}{1.2}
+          \begin{tabular}{lll}
+          \toprule
+          & \textbf{Deterministic}    & \textbf{Statistical}   \\
+          \midrule
+          \textbf{Text-dependent}       & Dynamic Time Warping (DTW) & Hidden Markov Model (HMM)      \\
+          \textbf{Text-independent}     & Vector Quantization (VQ)   & Gaussian Mixture Model (GMM)   \\
+          \bottomrule
+          \end{tabular}
+          \caption{\emph{Templates and Models} in Speaker Recognition}
+          \label{tab:spk}
+        \end{table}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item \textbf{Comparative analysis} is a comparison between two biometrics, typically a tested sample and an enrollment (reference) template or model. The output of the comparison is a distance or score.
+        \item \textbf{Speaker Recognition Systems}:
+        \begin{itemize}
+          \item \emph{Conventional Speaker Verification System}\\Enrollment: \\
+          GMM training $\rightarrow$ Speaker-dependent GMM $\rightarrow$ Database
+          \item \emph{SV with Verbal Information Verification}\\Automatic enrollment: \\
+          Verbal Information Verification $\Rightarrow$ Save for training $\rightarrow$ Verified pass-phrases for training $\rightarrow$ HMM training $\rightarrow$ Speaker-dependent HMM $\rightarrow$ Database
+          \item \emph{Text-prompted Speaker Recognition}: Uses \textbf{speaker-specific phoneme models} as basic acoustic units. New prompted sentence every time -- can't cheat with pre-recordings.
+        \end{itemize}
+        \item \textbf{Prerequisites for good performance in Speaker Recognition}: Speakers must not disguise their voices; Recording conditions and signal processing techniques are known or controlled; Speech recorded in conditions similar to those of the test signal is available; Reference values for similarity measures established in similar conditions as the test signal; Decision thresholds calibrated according to reference values depending on the application.
+      \end{itemize}
+    \subsubsection*{08. Dynamic Signature}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item \emph{Behavioral} characteristic. Combines \emph{knowledge} and \emph{biometric}. Not \emph{permanent} (invariant over time). Currently can be digitalized and is in ID cards.
+        \item \textbf{Applications}: Signature forensics, Signature authentication, Signature surveillance, Digital Rights Management, Biometric cryptosystems.
+        \item \textbf{Off-line} or \textbf{Static} -- scanned from paper documents, written conventionally.
+        \item \textbf{On-line} or \textbf{Dynamic} -- written with electronic device. Dynamic information (pen tip location through time) usually available at high resolution, even if pen not in contact with paper.
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item Tablets, smartphones, IKEA's and Sunrise's SignPad, UPS and SwissPost...
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item Basic (Local) Features:
+        \begin{enumerate}
+          \item X, Y coordinates
+          \item Velocity
+          \item Acceleration
+          \item Pen azimuth (0 - 359 deg)
+          \item Pen altitude (0 - 90 deg)
+          \item Pressure
+          \item First and second derivatives of feature
+        \end{enumerate}
+        \item Global features (more than 150)
+        \begin{itemize}
+          \item Signature length, height, weight
+          \item Total signature time
+          \item Total pen-down and pen-up time
+          \item Avg., max. and min. velocity
+        \end{itemize}
+        \item Pre-processing: Smoothing; Segmentation (determine beginning and end); Initial point alignment.
+        \item Forgery: Zero-effort; Home-improved (based on static image); Over-the-shoulder (observe signing); Professional (skilled individuals). Over-the-shoulder + Home-improved combo is called \emph{skilled}.
+      \end{itemize}
+
+      \textbf{Templates} (Models are DTW, GMM and HMM)
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item DET curves to compare different GMMs, HMM...
+        \item Resistant to imposters, non-invasive, can be changed by users, fast and intuitive enrolment, fast verification, independent of native language user.
+        \item Inconsistent signatures increase error rates, limited applications, for good accuracy a 5D pen is needed (costly), some people can't sign.
+      \end{itemize}
+    \subsubsection*{09. Gait, Typing Rhythm}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \subsection*{Biological Traces}
+    \subsubsection*{10. DNA}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \subsection*{Synthetic Biometric Data Generation}
+    \subsubsection*{11. Synthesis of Fingerprints}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \subsection*{Multimodal Biometrics}
+    \subsubsection*{12. Multimodal Biometrics}
+      \textbf{Generalities}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Sensing}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Feature extraction}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Templates}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+
+      \textbf{Matching (comparison)}:
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \subsection*{Miscellaneous}
+    \subsubsection*{13. Quality and Ageing in Classication of Biometric Data}
+
+\newpage
+
+\section*{Question 2 -- Other Topics} % (fold)
+\label{sec:question_2_other_topics}
+  \subsection*{Fundamentals of Biometrics (01)}
+    \subsubsection*{01. Identity and Biometrics}
+      The role of Biometrics is to recognize a person by their body traits and link the body to an externally assigned identity.
+
+      \textbf{Biometrics}:
+      \begin{itemize}
+        \item \emph{Biometrics} -- automated recognition of individuals based on biological and behavioral characteristics
+        \item \emph{Biometry} -- statistical and mathematical methods applicable to data analysis problems in the biological sciences
+        \item \emph{Biometric system} -- automatic pattern recognition system that recognizes a person by verifying the authenticity of a specific biological and/or behavioral characteristic (biometric modality) they possess
+        \item (forensic, judicial) \emph{Anthropometry} -- (identification of criminals by) measurement techniques of human body and its specific parts
+      \end{itemize}
+      \textbf{Identity}:
+      \begin{itemize}
+        \item \emph{Identity} -- whatever makes something the same or different.
+        \item \emph{Authentication} (identity verification) -- process to link a physical person with a certain identity
+      \end{itemize}
+
+      People are identified by \textbf{three basic means}:
+      \begin{itemize}
+        \item Something they \emph{have} -- identity document or card, passport, birth certificate, token...
+        \item Something they \emph{know} -- password, PIN, name, date of birth
+        \item Something they \emph{are} -- human body
+      \end{itemize}
+
+      \textbf{Security level of each solution}:
+      $$\text{Know} \qquad<\qquad \text{Know}+\text{Have} \qquad<\qquad \text{Know}+\text{Are} \qquad<\qquad \text{Know}+\text{Have}+\text{Are}$$
+
+      \textbf{Advantages of Biometric identifiers}: \emph{Security}; \emph{Convenience}; \emph{Audit trial}; \emph{Avoid fraud}; \emph{De-duplication}. Examples: automated comparison process occurs in seconds; can replace passwords (often forgotten, lost, or misappropriated); identity justification without paperwork.
+
+      \textbf{Ideal biometric identifier}: \emph{Universality} (every person has it); \emph{Uniqueness} (different for every person); \emph{Permanence} (invariant in time); \emph{Collectability} (measurable, practical); \emph{Acceptability} (public has no strong objections).
+
+      \textbf{Challenge of biometrics}: \emph{Scalability}, \emph{Usability}, \emph{Accuracy}.
+
+      \textbf{Identifiable biometric characteristics}: \emph{Biological traces} (DNA, blood, saliva); \emph{Biological (physiological) characteristics} (fingerprint, iris, retina, hand palm, hand veins, hand geometry, facial geometry); \emph{Behavioral characteristics} (dynamic signature, gait, keystroke dynamics, lip motion); \emph{Combined} (voice).
+
+      \textbf{Comparison of biometric techniques} (Cost and Accuracy):
+      $$\text{Cost: }\qquad\qquad\text{Voice} \quad<\quad \text{Face} \quad\approx\quad \text{Fingerprint} \quad<\quad \text{Signature} \quad<\quad \text{Hand} \quad<\quad \text{Iris}$$
+      $$\text{Accuracy: }\qquad\text{Voice} \quad\approx\quad \text{Face} \quad\approx\quad \text{Signature} \quad<\quad \text{Hand} \quad<\quad \text{Fingerprint} \quad<\quad \text{Iris}$$
+      \newpage
+    \subsubsection*{02. Recognition, Verification, Identification and Authentication (01)}
+      \textbf{Recognition} -- used when we do not distinguish between verification, identification and authentication.
+
+      \textbf{Verification} -- performs one-to-one comparison of a submitted biometric characteristic (sample) set against a specified stored biometric reference, and returns the comparison score and decision (deciding whether a sample belongs to a specified 
+      person) -- \emph{Is this person who he claims to be?}
+
+      \textbf{Identification} -- performs one-to-many comparison/search to determine the identity of the user from a known set of identities -- \emph{Who is this person?}
+
+      \textbf{Authentication} -- the user claims an identity and the system verifies whether the claim is genuine (link a person with a chosen identity).
+
+      \begin{figure}[htp]
+        \centering
+          \includegraphics[width=\textwidth]{vfa.png}
+          \caption{Enrolment, Verification and Identification}
+          \label{fig:vfa}
+      \end{figure}
+  \subsection*{Analysis, Modeling and Interpretation of Biometric Data}
+    \subsubsection*{03. Mathematical Tools: Dynamic Time Warping (DTW) (02,03)}
+      \begin{itemize}
+        \item In voice: Algorithm for measuring \textbf{dissimilarity} (distance) between two temporal sequences, which may vary in speed. Given a test word $T$ and reference words $R_1$, ... $R_N$ (all represented by sequences of feature vectors), we choose the reference word $R_r$ with smallest distance $D(T,R_r)$.
+        \item In voice: The recognition system is adapted to the single speaker who uttered the reference word. Limited vocabulary, without words too close phonetically. The words to be recognized are pronounced in an environment free of noise. They could be isolated in a perfect manner.
+        \item \textbf{Non-linear time alignment}: The sequences are \emph{warped} non-linearly in time dimension to determine a measure of their similarity independent of certain non-linear time variations.
+        \item \textbf{Algorithm}. \emph{Conditions}: Boundary; monotonicity; step size.
+        \begin{itemize}
+          \item Recursively calculate a minimum accumulated distance for each point $(i, j)$ taking into account some local heuristic constraints and weights.
+          \item Each grid point $(i,j)$ is associatied with a \emph{local distance} $d(i,j)$ and an accumulated distance $D(i,j)$.
+          \begin{figure}[htp]
+            \centering
+            \begin{subfigure}{.32\textwidth}
+              \centering
+              \includegraphics[width=\textwidth]{LCA.png}
+              \caption{Local constraints (A)}
+              \label{fig:lca}
+            \end{subfigure}%
+            \hfill
+            \begin{subfigure}{.32\textwidth}
+              \centering
+              \includegraphics[width=\textwidth]{LCB.png}
+              \caption{Local constraints (B)}
+              \label{fig:lcb}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{.29\textwidth}
+              \centering
+              \includegraphics[width=\textwidth]{LCC.png}
+              \caption{Local constraints (C)}
+              \label{fig:lcc}
+            \end{subfigure}
+            %\caption{Sample Figure with subfigures}
+            %\label{fig:samplesubfig}
+          \end{figure}
+          \item Type C constraints: Allow a path of any shape satisfying monotonicity.
+          \item Spectral distance: \todo[inline]{esto?}
+        \end{itemize}
+      \end{itemize}
+    \subsubsection*{04. Mathematical Tools: Gaussian Mixture Model (GMM) (02,03)}
+      \begin{itemize}
+        \item A Gaussian Mixture Model (GMM) is a parametric probability density function represented as a weighted sum of Gaussian component densities.
+        \item Under the assumption that any arbitrary probability density function (PDF) can be approximated by a linear combination of uni-modal Gaussian densities, the Gaussian mixture models (GMMs) have been applied to model the distribution of a sequence of D-dimensional feature vectors.
+        \item The sum of \emph{mixture weights} equals 1.
+        \item Model parameters: $\lambda = \{w_i, \mu_i,\Sigma_i\}$ (estimated with Expectation Maximization algorithm, although can also be estimated with Maximum A Posteriori estimation).
+        \begin{itemize}
+          \item Expectation step: Compute a posteriori probability for component $i$
+          \item Maximization step: Maximize, guaranteeing a monotonic increase in model's likelihood.
+        \end{itemize}
+        \item MAP estimation is used in speaker recognition to derive speaker model by adapting from a speaker independent universal background model (UBM), or to adapt a prior, general model.
+        \item Decision is carried out using a likelihood test with $H_0$ (tested recording and speaker's model are from same source), $H_1$ (not $H_0$) and Bayes theorem ($\sigma$ is the decision threshold): $$\frac{P(T|\lambda_0)}{P(T|\lambda_1)}>\sigma$$
+        \item Similarity domain normalization: $\log{L(X)} = \log{p(X|S=S_c)} -
+        \log{\sum_{S\in\text{Cohort}}{p(X|S \neq S_c)}}$
+        \item Normalization by a general/world model: A Gaussian mixture which models the parameter distribution for free-text utterances by many speakers.
+      \end{itemize}
+    \subsubsection*{05. Mathematical Tools: Hidden Markov Model (HMM) (02,03)}
+      \begin{itemize}
+        \item HMM is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (i.e. hidden) states. Is doubly probabilistic finite-state machine.
+        \item \textbf{Ergodicity}: There is transition from any state to any other state.
+        \item \textbf{Three Basic HMM Problems}:
+        \begin{enumerate}
+          \item \textbf{Decoding} -- Given the observation sequence $X=[x(1),x(2),...,x(t),...,x(L)]$ and the word model $W=(A,B)$, how do we choose a state sequence $Q=[q(1),q(2),...,q(t),...,q(L+1)]$ that is optimal in some meaningful sense sense (e.g. maximal probability)?
+          \item \textbf{Evaluation} -- Given the observation sequence $X=[x(1),x(2),...,x(t),...,x(L)]$ and a word model $W=(A,B)$, how do we (efficiently) compute $P(X|W)$ (probability of the observation sequence)?
+          \begin{itemize}
+            \item The Baum-Welch algorithm (\textbf{forward}): $\alpha_j(t)=\sum_i{\alpha_i(t-1)\cdot\alpha_{ij}\cdot B_{ij}(X(t))}$
+            \item The Baum-Welch algorithm (\textbf{backward}): $\beta_i(t)=\sum_j{B_{ij}(X(t+1))\cdot\alpha_{ij}\cdot\beta_{j}(t+1)}$
+            \item \textbf{Total probability}: $P(X|W)=\alpha(L, q_F)=\beta(0,q|I)$
+          \end{itemize}
+          \item \textbf{Training} -- How do we adjust the model parameters $W=(A,B,\pi)$ to maximize $P(X|W)$?\\
+          Algorithm de Baum-Welch (forward-backward):
+          \begin{itemize}
+            \item Calculate \emph{all forward-backward} probabilities for all states $q_i$
+            \item Calculate posterior probability of transitions $\gamma_{ij}$, from state $i$ to state $j$, conditioned on the observation sequence and the model.
+            \item Obtain a new estimate $a_{ij}=\gamma_{ij}(X)/\gamma_i$
+            \item If the value of the total probability has not improved compared to the previous iteration, the re-estimation has converged.
+          \end{itemize}
+        \end{enumerate}
+
+        \item Continuous Density HMM (CD-HMM) -- Parametric approach: Continues probability density functions (ergodic and left-right models).
+
+        \item \emph{Viterbi Algorithm}: By induction, find the path that leads to a \emph{Max. Likelihood} considering the best likelihood at the previous step and the transitions from it.
+      \end{itemize}
+    \subsubsection*{06. Mathematical Tools: Principal Component Analysis (PCA)}
+    \subsubsection*{07. Mathematical Tools: Linear Discriminant Analysis (LDA)}
+    \subsubsection*{08. Enrollment and Template Creation}
+    \subsubsection*{09. Verification and Identification System Errors}
+    \subsubsection*{10. Evaluation of Biometric Systems (01,03)}
+      \textbf{Performance evaluation}:
+      \begin{itemize}
+        \item \textbf{Evaluation factors}: Speech quality, Speech modality, Speech duration, Speaker population.
+        \item \textbf{FMR} and \textbf{FNMR}:
+        \begin{itemize}
+          \item False Match Rate \textbf{FMR} -- proportion of impostor attempt samples falsely declared to match the compared nonself template (number of impostor FMs / number of impostor attempts)
+          \item False Non-Match Rate \textbf{FNMR} -- proportion of genuine attempt samples falsely declared not to match the template of the same characteristic from the same user submitting the sample (number of genuine FNMs / number of genuine attempts)
+          \item \textbf{Calculation}: Create biometric templates using training data set. Define a test set with genuine and impostor trials. Run test and group genuine and impostor scores. Choose threshold value T and calculate FMR(T) and FNMR(T).
+        \end{itemize}
+        \item \textbf{FAR} and \textbf{FRR}:
+        \begin{itemize}
+          \item False Accept Rate \textbf{FAR} -- Proportion of imposters accepted (security breaches)\\\textbf{FAR}=FMRx(1-FTA)
+          \item False Reject Rate \textbf{FRR} -- Proportion of genuine users rejected (inconvenience)\\\textbf{FRR}=FTA+FNMRx(1-FTA)
+        \end{itemize}
+        \item \textbf{DET} and \textbf{ROC} curves:
+        \begin{itemize}
+          \item Detection Error Tradeoff \textbf{DET} -- can be computed from distributions of scores with a variable threshold. FAR vs FRR
+          \item Receiver Operating Characteristic \textbf{ROC} -- Correct Accept Rate as function of False Accept Rate (FAR)
+        \end{itemize}
+        \item \textbf{CAR} and \textbf{CRR}:
+        \begin{itemize}
+          \item Convenience -- Correct Accept Rate \textbf{CAR}=1-FRR
+          \item Security -- Correct Reject Rate \textbf{CRR}=1-FAR
+        \end{itemize}
+        \item \textbf{FTA} and \textbf{FTE}:
+        \begin{itemize}
+          \item Failure to Acquire Rate \textbf{FTA} -- Proportion that cannot be verified (does not process a certain biometric)
+          \item Failure to Enroll Rate \textbf{FTE} -- Proportion that cannot be enrolled (system fails to complete the enrolment process, due to bad quality)
+        \end{itemize}
+        \item \textbf{Performance measures for identification}:
+        \begin{itemize}
+          \item Correct Identification Rate (\textbf{CIR}) -- proportion of identification transactions by users in the system s.t. the user's identifier is among the ones returned.
+          \item Cumulative Match Characteristic (\textbf{CMC}) -- Identification rate as function of K.
+        \end{itemize}
+
+      \end{itemize}
+      \begin{figure}[htp]
+        \centering
+          \includegraphics[width=.5\textwidth]{thres.png}
+          \caption{Threshold T, FRR and FAR}
+          \label{fig:frrfar}
+      \end{figure}
+  \subsection*{Miscellaneous}
+    \subsubsection*{11. Forensic Automatic Speaker Recognition (03)}
+      \begin{itemize}
+        \item \textbf{Forensic Biometrics} -- Challenge is to automate forensic biometric methods. Applications of biometric principles and methods to the investigation of criminal activities: to demonstrate the existence of a crime and determine the author. \emph{Forensic} means the use of science or technology in the investigation and establishment of facts or evidence in the court of law.
+        \item \textbf{Existing systems and databases}:
+        \begin{itemize}
+          \item Automatic Fingerprint Identification System (AFIS) and fingerprints databases
+          \item DNA sequencers and DNA databases
+          \item Challenge: Automatic Biometric Identification System (ABIS) and databases for voice, face...
+        \end{itemize}
+        \item \textbf{Speaker Identification Integrated Project (SIIP)} -- Aims to develop technology to rapidly identify suspects' voices and isolate conversations of interest in a wide range of cases (kidnapping, ransom or terrorist calls...)
+        \item \textbf{Forensic Speaker Recognition (FSR)}:
+        \begin{itemize}
+          \item \textbf{Aural-perceptual methods}: earwitnesses, line-ups
+          \item \textbf{Visual methods and \emph{voiceprint?}}: visual comparison of spectrograms of linguistically identical utterances (utterly misleading!)
+          \item \textbf{Aural-instrumental methods}: analytical acoustic approach combined with an auditory phonetic analysis
+          \item \textbf{Automatic methods}:
+          \begin{itemize}
+            \item \emph{Speaker verification} -- not adequate
+            \item \emph{Speaker identification} -- not adequate
+            \item \emph{Voice as biometric evidence} (How to measure biometric evidence?)
+          \end{itemize}
+        \end{itemize}
+        \item \textbf{Automatic Speaker Recognition (ASR)}:
+        \begin{itemize}
+          \item FASR $\neq$ Speaker Verification
+          \item $H_0$ ($H_1$) -- speaker's model $\lambda_0$ and the tested recording $T$ have same (different) source.
+          $$\frac{P(H_0)}{P(H_1)}\cdot\frac{P(T|H_0)}{P(T|H_1)}=\frac{P(H_0|T)}{P(H_1|T)}\qquad\qquad\frac{P(T|\lambda_0)}{P(T|\lambda_1)}>\sigma\qquad\text{($\sigma$ -- Decision threshold)}$$
+        \end{itemize}
+        \item See Table \ref{tab:spk}.
+        \item \textbf{Forensic Automatic Speaker Recognition (FASR)}:
+        \begin{itemize}
+          \item \textbf{Forensic specifity} -- Role of \emph{forensic science} is to testify to the worth of the evidence \emph{quantitatively} (if possible). Forensic science provides \emph{opinion} to help investigators and courts of law answer important questions. Up to the \emph{judge/jury} to use this information in deliberations and decision.
+          \item \textbf{Evaluative forensic science opinion} -- opinion of evidential weight, based upon case specific propositions (hypotheses) and clear conditioning information (framework of circumstances) that is provided for use as evidence in court. Is based upon the estimation of a likelihood ratio (in relation with Bayesian interpretation of evidence).
+        \end{itemize}
+        \item \textbf{Bayesian Interpretation of Biometric Evidence} ($H_0$ $\equiv$ suspected speaker is source of the recording). Via Bayes Rule, we use the data to update prior beliefs about unknowns. See Figure \ref{fig:byfs}. Freedom of: choosing evidence evaluation and its value; formulating propositions; choosing automatic speaker recognition method.
+          \begin{figure}[htp]
+            \centering
+              \includegraphics[width=.7\textwidth]{byfs.png}
+              \caption{Odds form of Bayes' Theorem: Bayesian Interpretation of Forensic Evidence}
+              \label{fig:byfs}
+          \end{figure}
+        \item \textbf{Measures}:
+        \begin{enumerate}
+          \item \textbf{Biometric Evidence} -- Quantified degree of \emph{similarity} between the speaker dependent features extracted from the trace and the extracted from recorded speech of a suspect (model).
+          \begin{itemize}
+            \item \textbf{FASR -- Univariate (Scoring) Method} -- See Figure \ref{fig:spk}. The \emph{score} is used together with the distributions of \emph{between-sources variability} and the \emph{within-source variability} to reach a decision.
+          \end{itemize}
+          \item \textbf{Strength of Evidence -- Likelihood Ratio} -- A likelihood ratio $LR=P(E|H_0)/P(E|H_1)$ of 9.16 means that it is 9.16 times more likely to observe the score (E) given $H_0$ than given $H_1$. If $LR>1$ then $H_0$, else $H_1$.
+          \begin{itemize}
+            \item \textbf{FASR -- Multivariate (direct) Method} -- E is the multivariate feature representation of trace evidence.
+          \end{itemize}
+          \item \textbf{Evaluation of the Strength of Evidence} -- (similar idea to Figure \ref{fig:frrfar}) \emph{Principle}: Estimation and comparison of likelihood ratios that can be obtained from same speaker and different speaker trials. $H_0$ true $\rightarrow$suspected person recording and questioned recording are from same speaker.
+          \begin{itemize}
+            \item Tippett plots I to obtain \emph{Probability of Misleading Evidence (accuracy)} $\text{PME}H_0$ and $\text{PME}H_1$.
+            \item Tippett plots II to obtain EPP (Equal Proportion Probability), PD (Probabilistic Distance) of case $LR_{case}$ to $\text{PME}H_0$.
+            \item Empirical Cross-Entropy (ECE) and Log-Likelihood Cost (CLLR) \todo[inline]{these two?}
+          \end{itemize}
+        \end{enumerate}
+      \end{itemize}
+    \subsubsection*{12. Forensic Biometrics (Fingerprints, Face, DNA, Ear, Gait)}
+    \subsubsection*{13. Biometric Standards}
+    \subsubsection*{14. Securing Biometric Data and Biometric Encryption}
+    \subsubsection*{15. Biometrics in Identity Documents}
+    \subsubsection*{16. Privacy and Legal Issues}
+
+\end{document}
+
+
+
+
+
+\section{Sample Section} % (fold)
+\label{sec:sample_section}
+
+\subsection{Sample figures} % (fold)
+\label{sub:sample_figures}
+
+% subsection sample_figures (end)
+
+\begin{figure}[htp]
+  \centering
+    % \includegraphics[width=\textwidth]{images/figure.pdf}
+    \missingfigure[figwidth=\textwidth]{Some Figure}
+    \caption{Sample Figure}
+    \label{fig:sample fig}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \caption{First Subfigure}
+    % \includegraphics[width=\textwidth]{images/figure.pdf}
+    \missingfigure[figwidth=\textwidth]{Some subfigure}
+    \label{fig:samplesubfiga}
+  \end{subfigure}%
+  \hfill
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \caption{Second Subfigure}
+    % \includegraphics[width=\textwidth]{images/figure.pdf}
+    \missingfigure[figwidth=\textwidth]{Some subfigure}
+    \label{fig:samplesubfigb}
+  \end{subfigure}
+  \caption{Sample Figure with subfigures}
+  \label{fig:samplesubfig}
+\end{figure}
+
+\subsection{Sample Tables} % (fold)
+\label{sub:sample_tables}
+
+\begin{table}[htp]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Item} & \multirow{2}{*}{Price (\$)} \\
+\cmidrule(r){1-2}
+Animal    & Description &   \\
+\midrule
+\multirow{2}{*}{Gnat}      & per gram    & 13.65      \\
+          &    each     & 0.01       \\
+Gnu       & stuffed     & 92.50      \\
+Emu       & stuffed     & 33.33      \\
+Armadillo & frozen      & 8.99       \\
+\bottomrule
+\end{tabular}
+\caption{Some table }
+\label{tab:sample table}
+\end{table}
+
+
+\begin{table}[htp]
+    \centering
+    \begin{subtable}[htp]{0.5\textwidth}
+        \centering
+        \begin{tabular}{lll}
+        \toprule[1.5pt]
+        \textbf{Command} & \textbf{Declaration} & \textbf{Output}\\
+        \midrule
+        \verb|\textnormal| &\verb|\normalfont| & Example text\\
+        \verb|\textrm| & \verb|\rmfamily| & \rmfamily Example text\\
+        \verb|\textsf| & \verb|\sffamily| & \sffamily Example text\\
+        \verb|\texttt| &\verb|\ttfamily| & \ttfamily Example text\\
+        \verb|\textit| &\verb|\itshape| & \itshape Example text\\
+        \verb|\textsl| &\verb|\slshape| & \slshape Example text\\
+        \verb|\textsc| &\verb|\scshape| & \scshape Example text\\
+        \verb|\textbf| &\verb|\bfseries| & \bfseries Example text\\
+        \verb|\textmd| &\verb|\mdseries| & \mdseries Example text\\
+        % \verb|\textlf| &\verb|\lfseries| & \lfseries Example text\\
+        \bottomrule[1.5pt]
+        \end{tabular}
+      \caption{First Subtable}
+      \label{tab:subtable-a}
+    \end{subtable}
+    
+    \begin{subtable}[htp]{\textwidth}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{lrrrc}
+        \toprule[1.5pt]
+        \textbf{Command} & \textbf{Declaration} & \textbf{Output}\\
+        \midrule
+        Command       & [10pt]  & [11pt]  & [12pt]  & Sample \\
+        \verb|\tiny|         &  5      &  6      &  6      & {\tiny Example Text} \\
+        \verb|\scriptsize|   &  7      &  8      &  8      & {\scriptsize Example Text} \\
+        \verb|\footnotesize| &  8      &  9      &  10     & {\footnotesize Example Text} \\
+        \verb|\small|        &  9      &  10     &  10.95  & {\small Example Text} \\
+        \verb|\normalsize|   &  10     &  10.95  &  12     & {\normalsize Example Text} \\
+        \verb|\large|        &  12     &  12     &  14.4   & {\large Example Text} \\
+        \verb|\Large|        &  14.4   &  14.4   &  17.28  & {\Large Example Text} \\
+        \verb|\LARGE|        &  17.28  &  17.28  &  20.74  & {\LARGE Example Text} \\
+        \verb|\huge|         &  20.74  &  20.74  &  24.88  & {\huge Example Text} \\
+        \verb|\Huge|         &  24.88  &  24.88  &  24.88  & {\Huge Example Text} \\
+        \bottomrule[1.5pt]
+        \end{tabular}
+        \caption{Second Subtable}
+        \label{tab:subtable-b}
+    \end{subtable}
+      \caption{Sample Subtables}
+      \label{tab:subtable}
+\end{table}
+
+% subsection sample_tables (end)
+
+\end{document}
