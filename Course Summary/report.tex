@@ -131,8 +131,6 @@
           \item Minutiae + Local Binary Pattern (LBP) Histogram
         \end{itemize}
       \end{itemize}
-
-      \textbf{Synthetic Fingerprint Generation}: To automatically create large databases of fingerprints, allowing to train test optimize and compare algorithms. Collecting fingerprints is expensive (money and time) and problematic (privacy legislation).
     \newpage
     \subsubsection*{02. Face (2D and 3D)}
       \textbf{Generalities}:
@@ -503,30 +501,34 @@
       \end{itemize}
   \subsection*{Synthetic Biometric Data Generation}
     \subsubsection*{11. Synthesis of Fingerprints}
-      \textbf{Generalities}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Sensing}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
+      \textbf{Synthetic Fingerprint Generation}: To automatically create large databases of fingerprints, allowing to train, test, optimize and compare algorithms. Collecting fingerprints is expensive (money and time) and problematic (privacy legislation).
+      \begin{enumerate}
+        \item Select  $\rightarrow$ Obtain:
+        \begin{enumerate}
+          \item shape parameters $\rightarrow$ \textbf{fingerprint shape}
+          \item class and singularities $\rightarrow$ \textbf{directional map} model
+          \item average density (and singularities) $\rightarrow$ \textbf{density map} model
+        \end{enumerate}
+        \item \textbf{Ridge pattern} generation, to obtain \textbf{master} fingreprint
+        \begin{itemize}
+          \item Gabor filters iteratively applied to an initially white image, enriched with a few random points. Orientation and frequency of the filters are locally adjusted according to directional and density maps.
+          \item As a result, realistic minutiae appear at random positions.
+        \end{itemize}
+        \item Add \textbf{variability} data:
+        \begin{enumerate}
+          \item Determine contact region and erosion/dilation (low-pressure or dry/high-pressure or wet)
+          \item Skin deformation
+          \item Noise and rendering
+          \item Translation and rotation
+          \item Generate background
+        \end{enumerate}
+      \end{enumerate}
+      \begin{figure}[htp]
+        \centering
+          \includegraphics[width=.45\textwidth]{fg.png}
+          \caption{Synthetic Fingerprint Generation}
+          \label{fig:fg}
+      \end{figure}
   \subsection*{Multimodal Biometrics}
     \subsubsection*{12. Multimodal Biometrics}
       \textbf{Generalities}:
