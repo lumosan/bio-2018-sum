@@ -148,27 +148,53 @@
     \subsubsection*{03. Iris}
       \textbf{Generalities}:
       \begin{itemize}
-        \item Biological.
+        \item Biological. Distinctive features: arching ligaments, furrows, ridges, crypts, rings, corona, freckles, etc. Random pattern, mostly stable through life.
+        \item \textbf{Epigenetic} (not genetically determined, as opposed to \emph{genotypic}).
+        \item eBorders in the United Arab States.
+        \item\textbf{Modules}:
+        \begin{enumerate}
+          \item \textbf{Acquisition} -- Get 2D image with \emph{monochromatic CCD camera} sensitive to \emph{NIR} (Near InfrarRed: 700-900 nm) light spectrum.\\
+          Infrared light is preferred because it's more reflected by melanin than visible light, thus more iris texture is visible. Illumination is ANSI and Cenelec Certified safe to use. Pigmentation variations in iris are due to melanin density and are invisible in the NIR.
+          \item \textbf{Segmentation} -- \emph{Localize iris} in eye image\\
+          Edge Detection and Hough Transform -- The operator is a circular edge detector, can be used to detect the iris as well as the eyelid boundaries.
+          \item \textbf{Normalization} -- Geometric normalization from \emph{Cartesian} to \emph{polar} coordinates $(r,\theta)$ with $r\in [0,1]$ and $\theta\in [0,2\pi]$\\
+          This compensates pupil dilation and iris size inconsistencies but not rotational inconsistencies (this is accounted for during \emph{matching} by shifting the iris templates in the $\theta$ direction until templates are aligned)
+          \item \textbf{Encoding} -- Feature extraction to produce a binary code. Invariant to pupil dilation and iris size. It's reliable and false. False Match Rate very small.\\
+          2048 bits (256 bytes) are extracted from iris image and an equal number of masking bits to signify whether any region should be ignored in the demodulation code.\\
+          The information extracted from the iris is described in terms of \emph{phase} $\Rightarrow$ \emph{insensitive} to contrast, camera gain, and illumination level (unlike correlation methods).\\
+          Correlations within an iris (local structure is self-predicting). All IrisCode bits are equally likely to be 0 or 1 $\Rightarrow$ IrisCode  have \emph{maximum entropy} bitwise.
+          \item \textbf{Comparison} -- How closely the produced code matches the encoded features in the database. Fractional Hamming Distance ($HD$, fraction of bits that disagree -- 10\% for same eye, 45\% for different)
+            $$HD_\text{raw}=\frac{||(\text{code}_A \oplus\text{code}_B)\land \text{mask}_A\land \text{mask}_B||}{||\text{mask}_A\land \text{mask}_B||}$$
+          \begin{itemize}
+            \item Iris Code bit comparisons are Bernoulli Trials -- \emph{binomial distribution}:\\$f(x)=\frac{N!}{m!(N-m)!}p^m(1-p)^{N-m}$\\
+            \item If \emph{less iris visible} then decision criterion becomes \emph{more demanding}:\\ $HD_\text{crit}=0.32-0.01\cdot\log_{10}{N}$
+            \item Score re-normalisation to compensate for number of bits compared:\\$HD_\text{norm}=0.5-(0.5-HD_\text{raw})\sqrt{n/911}$
+            \item Fewer (more) than 911 bits penalizes (improves) Hamming Distance. 1152 bits corresponds to 100\% visibility of each iris.
+            \item Extremely fast when computed in parallel (1M IrisCodes per second with 3 Gb)
+          \end{itemize}
+        \end{enumerate}
       \end{itemize}
 
       \textbf{Sensing}:
       \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
+        \item Techniques for improving user interface:
+        \begin{itemize}
+          \item Use extremely high resolution CCD \todo[inline]{que es CCD?}
+          \item Well-designed optical system to improve DOF (Depth of Field)
+          \item Cold mirror for user to adjust his eye
+          \item Auto-focus
+          \item Active pan/tilt camera optics
+          \item Facial feature detection and tracking for guiding
+          \item Distance sensor or image content based distance estimation
+          \item Dual-eye iris camera
+        \end{itemize}
       \end{itemize}
 
       \textbf{Matching (comparison)}:
       \begin{itemize}
-        \item 
+        \item \textbf{Hamming Distance} -- Iris Codes are matched using a XOR to find bits at which they differ. AND is used to ensure that the compared bits are uncorrupted.
+        \item \textbf{Liveness detection} -- Photonic and \emph{spectrographic} countermeasures (tissue, fat, blood and melanin pigment spectra; \emph{red eye} effect) and \emph{behavioral} countermeasures.
+        \item \emph{Contact Lenses} and \emph{Large difference in dilation} result in few more False Rejections.
       \end{itemize}
     \subsubsection*{04. Periocular, Retina, Ear}
       \textbf{Generalities}:
