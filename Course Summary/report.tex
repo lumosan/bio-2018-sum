@@ -20,13 +20,6 @@
 
 \section*{Question 1 -- Leading Biometric Technology} % (fold)
 \label{sec:question_1}
-  %\begin{itemize}
-    %\item Sensing
-    %\item Feature extraction
-    %\item Templates
-    %\item Matching (comparison)
-  %\end{itemize}
-
   \subsection*{Physiological Characteristics}
     \subsubsection*{01. Fingerprint}
       \begin{figure}[htp]
@@ -133,29 +126,116 @@
       \end{itemize}
     \newpage
     \subsubsection*{02. Face (2D and 3D)}
+      \begin{figure}[htp]
+        \centering
+          \includegraphics[width=.7\textwidth]{summaries/face.png}
+          %\caption{Sample Figure}
+          %\label{fig:sample fig}
+      \end{figure}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item Three levels of details:
+        \begin{enumerate}
+          \item General face geometry, global skin color -- <30 \emph{interpupilary distance} (IPD)
+          \item Localized face information -- 30-75 IPD
+          \item Unstructured micro level features: scars, freckles, moles, skin discoloration
+        \end{enumerate}
+        \item Complications: Facial expression, point of view, illumination, inter-class similarity, automatic face detection, appearance changes (quick, slow).
+        \item Advantages: Low-cost, non-contact, non-intrusive, overt (user aware) or covert (user unaware), legacy databases, socially and culturally accepted, always acquires.
+        \item Proprietary algorithms to generate templates $\rightarrow$ not-interoperable templates (interoperable \emph{original} photo). \emph{Receiving State} uses its own vendor algorithm to compare taken and stored facial images.
+        \item \textbf{Machine Readable Travel Document} (\textbf{MRTD})
+        \item ICAO standard: 300 dpi (112 kB); not cropped or cropped from chin to crown.
+        \item Process:
+        \begin{enumerate}
+          \item Face Detection
+          \item Face Normalization
+          \item Feature Extraction
+          \item Classification
+        \end{enumerate}
       \end{itemize}
 
       \textbf{Sensing}:
       \begin{itemize}
-        \item 
+        \item \textbf{Imaging challenges}:
+        \begin{itemize}
+          \item \textbf{Acquisition geometry} -- Necessary face detection; in-plane (1 degree of freedom) and in-depth (2 degrees of freedom) rotation; scale.
+          \item \textbf{Imaging conditions} -- Lighting, intrinsic camera characteristics (automatic white balancing, gain control, noise reduction). \emph{Perfect conditions}: uniform background and lightning, acceptable quality.
+          \item \textbf{Compression artifacts} -- Image degradations due to compression for transmission/storage. JPEG and MPEG often used but not designed to preserve human face.
+        \end{itemize}
+        \item \textbf{Detection} (what faces have in common, tell face from non-faces); \emph{Localization} (find position of one existing face); \textbf{Face recognition} (what differentiates two faces)
+        \item Overlapped detections are merged if 60\% overlap.
+        \item \emph{Detection} and \emph{Recognition} \textbf{approaches}:
+        \begin{itemize}
+          \item \textbf{Feature/Geometry-based} (analytic: eyes, mouth...) -- Matching feature constellations. \emph{Rotated models} (one model for each rotation).\\
+          \textbf{Haar features}: \emph{Haar-like transform} calculates difference of intensity in neighbor regions. With low resolution images, better than purely geometrical methods. Applies Haar-like basis functions. \textbf{Viola-Jones} face detector.
+          \item \textbf{Appearance-based} (local and global features, analyze distributions of individual faces in face space) -- Neural Networks, \textbf{PCA}, \textbf{LDA}, \textbf{HMM}, SVM, \textbf{GMM}, Graph matching.
+        \end{itemize}
       \end{itemize}
-
+        \begin{figure}[htp]
+          \centering
+            \includegraphics[width=\textwidth]{facesc.png}
+            %\caption{Sample Figure}
+            %\label{fig:sample fig}
+        \end{figure}
       \textbf{Feature extraction}:
       \begin{itemize}
-        \item 
+        \item \textbf{Appearance-based} Face Recognition:
+          \begin{itemize}
+            \item \emph{Local} Features (segment image and get several feature vectors):
+              \begin{itemize}
+                \item \textbf{2D-DCT} based (Discrete Cosine Transform): Divide in $m$ $u$ by $v$ blocks, obtain for each $n=uv$ DCT coefficients $\Rightarrow$ $m$ vectors of length $n$, each vector a row of matrix $M^{m,n}$.\\Coefficients are ordered in zig-zag pattern.\\
+                Then \textbf{GMM}: 2D-DCT features for training; score = log-likelihood(2DDCT | model)
+                \item Local Texture Patterns:
+                \begin{itemize}
+                  \item Local Binary Patterns \textbf{LBPs}:
+                  $$\text{LPB}_{P,R}=\sum_{p=0}^{P-1}{s(g_p-g_c)2^p}$$
+                  with $g_c$ the gray value of the center pixel $(x_c, y_c)$; $g_p$ the gray values of $P$ equally spaced pixels on a circle of radius $R$; $s$ a thresholding function s.t. $s=1$ if $x\geq 0$, else 0.\\
+                  Histogram intersection measure: $H(p,q)=\frac{\sum_i{\min{(p_i, q_i)}}}{1/2\cdot(\sum_i{q_i}+\sum_i{p_i})}$
+                  \item Local Ternary Patterns \textbf{LTPs}: One ternary code can be expressed as two binary codes (one is sustracted from the other). Ternary Codes use -1, 0 and 1 (instead of 1 and 0 only)
+                \end{itemize}
+              \end{itemize}
+            \item \emph{Global} Features (Holistic approach, obtain one single feature vector):
+              \begin{itemize}
+                \item Principal Component Analysis \textbf{PCA}
+                \item Linear Discriminant Analysis \textbf{LDA}
+              \end{itemize}
+            \item \textbf{2D Model: Elastic Bunch Graph Matching} (\emph{relational approach}, requires $\geq$ 2 images)
+            \begin{itemize}
+              \item Estimates a model of the relationship. Each face is represented by a set of feature vectors positioned on the nodes of a coarse \todo[inline]{what is coarse?} 2D grid.
+              \item Each feature vector is a set of responses of 2D Gabor wavelets (different orientation and scale)
+              \item \emph{Comparing faces}: By matching and adapting the grid of the test image to the grid of the reference. Both grids have same number of nodes
+              \item Elasticity of grid allows for expression and view point changes adapting
+              \item Quality of match evaluated with distance function
+              \item Approach:
+              \begin{enumerate}
+                \item Split global transformation into set of local transformations
+                \item Avoid over-flexibility
+                \item Embed system with probabilistic framework of a 2D HMM
+              \end{enumerate}
+            \end{itemize}
+            \item \textbf{3D Morphable Model} (\emph{Face-On-The-Fly})
+            \begin{itemize}
+              \item Based on surface matching. Pose-normalization required.
+              \item Face geometry reconstructed in sub-millimeters (real ground-based measurement capturing x-y-z axes)
+              \item Feature extraction based on underlying cranial structure (unique, permanent)
+              \item Compact biometric template extracted. Possible RT face analysis, feature extraction and matching
+              \item Robustness to changes in pose, lighting, makeup, and spoofing with photo.
+              \item Face-On-The-Fly:
+              \begin{enumerate}
+                \item Face detection and tracking
+                \item 3D pose and shape estimation
+                \item Frontal view synthetis
+                \item Matching algorithm
+              \end{enumerate}
+            \end{itemize}
+          \end{itemize}
       \end{itemize}
 
-      \textbf{Templates}:
+      \textbf{Quality measures and Face Aging}:
       \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
+        \item Quality of samples and metadata quality
+        \item Illumination, brightness, contrast, focus, resolution, background, rotation, glasses...
+        \item How to deal with \emph{age}: Performance improved by updating in time a decision threshold. Databases for investigation of age progression.
       \end{itemize}
     \newpage
     \subsubsection*{03. Iris}
@@ -529,6 +609,7 @@
           \caption{Synthetic Fingerprint Generation}
           \label{fig:fg}
       \end{figure}
+  \newpage
   \subsection*{Multimodal Biometrics}
     \subsubsection*{12. Multimodal Biometrics}
       \textbf{Generalities}:
@@ -672,6 +753,7 @@
         \log{\sum_{S\in\text{Cohort}}{p(X|S \neq S_c)}}$
         \item Normalization by a general/world model: A Gaussian mixture which models the parameter distribution for free-text utterances by many speakers.
       \end{itemize}
+    \newpage
     \subsubsection*{05. Mathematical Tools: Hidden Markov Model (HMM) (02,03)}
       \begin{itemize}
         \item HMM is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (i.e. hidden) states. Is doubly probabilistic finite-state machine.
@@ -699,8 +781,75 @@
 
         \item \emph{Viterbi Algorithm}: By induction, find the path that leads to a \emph{Max. Likelihood} considering the best likelihood at the previous step and the transitions from it.
       \end{itemize}
-    \subsubsection*{06. Mathematical Tools: Principal Component Analysis (PCA)}
+    \subsubsection*{06. Mathematical Tools: Principal Component Analysis (PCA) -- Karhunen-Loeve transformation}
+      \begin{itemize}
+        \item \emph{Seeks directions that are efficient for representing the data}, \emph{maximize determinant of total scatter} -- Find set of parameters s.t. most variability in the data is compressed in first parameters. The transformed PCA parameters are orthogonal. It diagonalizes the covariance matrix $\rightarrow$ diagonal elements are the variances of the transformed PCA parameters.
+        \item Advantages and disadvantages:
+        \begin{itemize}
+          \item \emph{Advantages}: Completely decorrelates; packs the most variance in the fewest number of transform coefficients; minimizes MSE between reconstructed and original data; minimizes the total entropy of the data.
+          \item \emph{Disadvantages}: Not fast implementation and computationally costly to get eigenvalues and eigenvectors; not a fixed transform -- needs to be generated for each type of data statistic; problems for different illumination, pose, expression.
+        \end{itemize}
+        \item To obtain $K$ eigenfaces:
+        \begin{enumerate}
+          \item Let $X_{DM}$ the matrix that has features per rows ($X_{DM}$ has been mean-centered, $X=X_0-\mu$).
+          \item Compute covariance (scatter) matrix $C_{DD}=X\cdot X^T$ (or $C_{MM}=X^T\cdot X$, if $D$>>$M$)
+          \item SVD: Compute eigenvectors and Eigenvalues of chosen $C$
+          \item Choose $K$ largest eigenvalues
+          \item Form $W_{DK}$ with $K$ columns of eigenvectors
+          \item Transform data/features by projecting onto face space: $X_\text{PCA}=W^T\cdot X$
+          \item Extra stuff: $E_{DD}=W^TC_{DD}W$, $E_{MM}=V^TC_{MM}V$ (both $E$ are the same, only adding 0 to get correct dimension); $X=W\cdot E\cdot V^T$
+        \end{enumerate}
+        \item To recognize a face $r$:
+        \begin{enumerate}
+          \item Subtract average face from it $r_m=r-m$
+          \item Compute its projection onto the face space $x_{PCA} = W^T\cdot r_m$
+          \item Compute its difference w.r.t all known faces
+          \item Reconstruct the face from eigenfaces: $r_{PCA}=W\cdot x_{PCA}$
+          \item Distance between the face and its reconstruction: $|r_m-r_{PCA}|_2^2$ (depending on value, $r$ can be not a face, a new face or a known face)
+        \end{enumerate}
+      \end{itemize}
     \subsubsection*{07. Mathematical Tools: Linear Discriminant Analysis (LDA)}
+      \begin{itemize}
+        \item \emph{Seeks directions that are efficient for discrimination between the data}: maximizes ratio between determinant of \emph{between-class scatter} and determinant of \emph{within-class scatter}.
+        \item Problems: Small databases; the face to classify must be in database.
+        \item Compute Fisherfaces:
+        \begin{enumerate}
+          \item Compute average of all faces ($m$)
+          \item Compute average face of each person $x_i=1/2\cdot (a_i+b_i)$
+          \item Substract average person face for training faces ($a_i^m$=$a_i$-$x_i$, $b_i^m$=$b_i$-$x_i$)
+          \item Build \textbf{between-class scatter matrix} $S_B=\sum_i{2\cdot|x_i-m|^2_2}$
+          \item Build scatter matrices $S_i=a_i^m\cdot (a_i^m)^T + b_i^m\cdot (b_i^m)^T$
+          \item Build \textbf{within-class scatter matrix} $S_W=\sum_i{S_i}$
+          \item We are seeking the matrix $W$ maximizing the ratio between \emph{between-class variance} and \emph{within-class variance} is maximized: $$J(W)=\frac{|W^TS_BW|}{|W^TS_WW|}$$
+          \item Project faces onto LDA-space: $x_{LDA}=W^Tx$
+        \end{enumerate}
+        \item To classify a face:
+        \begin{enumerate}
+          \item Project it onto LDA space
+          \item Run a nearest-neighbor classifier
+        \end{enumerate}
+        \item \textbf{Comparison with PCA}:
+          \begin{table}[htp]
+            \centering
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{ll}
+              \textbf{LDA} & \textbf{PCA} \\
+              \toprule
+              \emph{Fisherfaces}  & \emph{Eigenfaces}\\
+              Discrimination & Uncorrelated representation\\
+              Maximize \emph{inter} to \emph{intra} class variability & Lower dimensional space\\
+              $N^2$ $\Rightarrow$ $P-1$, $P$ nb. classes & $N^2$ $\Rightarrow$ $K$\\
+              Works with different illumination & Problems with different illumination \\
+              Same intra-class variability for all classes      & Verify if it's a face \\
+              \bottomrule
+            \end{tabular}
+            %\caption{Some table }
+            %\label{tab:sample table}
+          \end{table}
+        \item \textbf{Combination of PCA and LDA} --
+          First apply PCA to reduce dimensionality, then apply LDA:
+          $$W_\text{Fisher}=\text{arg}\max_W{\frac{W^TW^T_\text{PCA}S_BW_\text{PCA}W}{W^TW^T_\text{PCA}S_WW_\text{PCA}W}}$$
+      \end{itemize}
     \subsubsection*{08. Enrollment and Template Creation}
     \subsubsection*{09. Verification and Identification System Errors}
     \subsubsection*{10. Evaluation of Biometric Systems (01,03)}
@@ -814,10 +963,16 @@
         \end{enumerate}
       \end{itemize}
     \subsubsection*{12. Forensic Biometrics (Fingerprints, Face, DNA, Ear, Gait)}
-    \begin{itemize}
-      \item \textbf{Fingerprints}: $$LR = \frac{p(\text{evidence}|H_p)}{p(\text{evidence}|H_d)}$$
-      with $H_p$ (suspect left the fingerprint), $H_d$ (someone else left the fingerprint), numerator (variability of minutiae configurations due to distortion and clarity), denominator (variability between minutiae from different sources). Delaunay triangulation, MCC and Local Quality Measures (embedding quality measures), ridge quality maps are used.
-    \end{itemize}
+      \begin{itemize}
+        \item \textbf{Fingerprints}: $$LR = \frac{p(\text{evidence}|H_p)}{p(\text{evidence}|H_d)}$$
+        with $H_p$ (suspect left the fingerprint), $H_d$ (someone else left the fingerprint), numerator (variability of minutiae configurations due to distortion and clarity), denominator (variability between minutiae from different sources). Delaunay triangulation, MCC and Local Quality Measures (embedding quality measures), ridge quality maps are used.
+        \item \textbf{Face}:
+        \begin{itemize}
+          \item Challenges: Forensic Sketch Recognition, Facial Aging, Facial Marks, Unconstrained Facial recognition
+          \item De-identification: Blurring, pixelation
+          \item Near infra-red to Visible Light images
+        \end{itemize}
+      \end{itemize}
     \subsubsection*{13. Biometric Standards}
     \subsubsection*{14. Securing Biometric Data and Biometric Encryption}
     \subsubsection*{15. Biometrics in Identity Documents}
