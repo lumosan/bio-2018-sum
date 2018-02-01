@@ -124,7 +124,7 @@
           \item Minutiae + Local Binary Pattern (LBP) Histogram
         \end{itemize}
       \end{itemize}
-    \newpage
+      \newpage
     \subsubsection*{02. Face (2D and 3D)}
       \begin{figure}[htp]
         \centering
@@ -243,7 +243,7 @@
         \item Illumination, brightness, contrast, focus, resolution, background, rotation, glasses...
         \item How to deal with \emph{age}: Performance improved by updating in time a decision threshold. Databases for investigation of age progression.
       \end{itemize}
-    \newpage
+      \newpage
     \subsubsection*{03. Iris}
       \begin{figure}[htp]
         \centering
@@ -301,7 +301,7 @@
         \item \textbf{Liveness detection} -- Photonic and \emph{spectrographic} countermeasures (tissue, fat, blood and melanin pigment spectra; \emph{red eye} effect) and \emph{behavioral} countermeasures.
         \item \emph{Contact Lenses} and \emph{Large difference in dilation} result in few more False Rejections.
       \end{itemize}
-    \newpage
+      \newpage
     \subsubsection*{04. Periocular, Retina, Ear}
       \textbf{Generalities}:
       \begin{itemize}
@@ -328,32 +328,37 @@
         \item 
       \end{itemize}
     \newpage
-    \subsubsection*{05. Hand Geometry}
+    \subsubsection*{05. Hand Geometry (shape)}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item Biological (physiological). Typical visible images of the hand are (a) palmar, (b) lateral, (c) dorsal.
+        \item Hand is unique: Finger length, width, thickness, curvatures and relative locations. Bone structure is constant after growth period.
+        \item Only the silhouette of the hand is recorded. \emph{Orthographic scanning} (two distinct images, one from the top and one from the side)
+        \item Inexpensive, robust to environmental changes, non-intrusive.
+        \item Low accuracy, changes during childhood, difficult for some users (arthritis, missing fingers, large hands)
       \end{itemize}
 
       \textbf{Sensing}:
+      \begin{table}[htp]
+        \centering
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{lll}
+          \toprule
+          & \textbf{Pros} & \textbf{Cons}\\
+          \midrule
+          \textbf{Pegged} & Predefined axis to measure features & Pegs may deform shape\\
+          \textbf{Non-Pegged} & More robust than Pegged to different placements & Difficult to locate axis to measure features\\
+          \bottomrule
+        \end{tabular}
+        %\caption{Some table }
+        %\label{tab:sample table}
+      \end{table}
       \begin{itemize}
-        \item 
+        \item \emph{Enrolment}: Two snapshots of the hand are taken and averaged
+        \item \emph{Matching}: Newly sensed feature vector is compared (euclidean distance) with stored feature vector
+        \item \textbf{Pegged} -- Feature extraction involves computing widths and lengths of fingers and palm at various locations (16 features)
+        \item \textbf{Non-Pegged} -- Wrist reference, radial distance function (from wrist reference)
       \end{itemize}
-
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-    \newpage
     \subsubsection*{06. Palmprint and Palm Veins}
       \textbf{Generalities}:
       \begin{itemize}
@@ -379,7 +384,7 @@
       \begin{itemize}
         \item 
       \end{itemize}
-  \newpage
+      \newpage
   \subsection*{Behavioral Characteristics}
     \subsubsection*{07. Voice (02, 03)}
       \begin{figure}[htp]
@@ -839,8 +844,9 @@
             \centering
             \renewcommand{\arraystretch}{1.2}
             \begin{tabular}{ll}
-              \textbf{LDA} & \textbf{PCA} \\
               \toprule
+              \textbf{LDA} & \textbf{PCA} \\
+              \midrule
               \emph{Fisherfaces}  & \emph{Eigenfaces}\\
               Discrimination & Uncorrelated representation\\
               Maximize \emph{inter} to \emph{intra} class variability & Lower dimensional space\\
@@ -1031,23 +1037,23 @@
 \label{sub:sample_tables}
 
 \begin{table}[htp]
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Item} & \multirow{2}{*}{Price (\$)} \\
-\cmidrule(r){1-2}
-Animal    & Description &   \\
-\midrule
-\multirow{2}{*}{Gnat}      & per gram    & 13.65      \\
-          &    each     & 0.01       \\
-Gnu       & stuffed     & 92.50      \\
-Emu       & stuffed     & 33.33      \\
-Armadillo & frozen      & 8.99       \\
-\bottomrule
-\end{tabular}
-\caption{Some table }
-\label{tab:sample table}
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{llr}
+    \toprule
+    \multicolumn{2}{c}{Item} & \multirow{2}{*}{Price (\$)} \\
+    \cmidrule(r){1-2}
+    Animal    & Description &   \\
+    \midrule
+    \multirow{2}{*}{Gnat}      & per gram    & 13.65      \\
+              &    each     & 0.01       \\
+    Gnu       & stuffed     & 92.50      \\
+    Emu       & stuffed     & 33.33      \\
+    Armadillo & frozen      & 8.99       \\
+    \bottomrule
+  \end{tabular}
+  \caption{Some table }
+  \label{tab:sample table}
 \end{table}
 
 
