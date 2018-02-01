@@ -224,20 +224,58 @@
     \input{dtwgmmhmmpca}
     \subsubsection*{08. Enrollment and Template Creation}
     \subsubsection*{09. Verification and Identification System Errors}
+      \newpage
     \subsubsection*{10. Evaluation of Biometric Systems (01,03)}
-      \textbf{Performance evaluation}:
+      \textbf{Non-technical aspects}:
       \begin{itemize}
-        \item \textbf{Evaluation factors}: Speech quality, Speech modality, Speech duration, Speaker population.
-        \item \textbf{FMR} and \textbf{FNMR}:
+        \item \textbf{Users acceptance}: Ergonomics (accuracy, speed, resource requirements); Health and safety (harmless); Psychology (accepted)
+        \item \textbf{Legal and social issues}: Privacy; Data Protection Legislation (robust); Accessibility
+      \end{itemize}
+
+      \textbf{Technical performance testing}:
+      \begin{itemize}
+        \item Reliability, availability and maintainability;
+        \item Vulnerability;
+        \item Security;
+        \item User acceptance;
+        \item Human factors;
+        \item Cost/benefit;
+        \item Privacy regulation compliance.
+      \end{itemize}
+
+      \textbf{Types of Evaluation}:
+      \begin{itemize}
+        \item Technology -- Offline, using pre-collected samples.
+        \\ $\Rightarrow$ In enrolment: same general conditions
+        \item Scenario -- Online, performance in prototype or simulated application.
+        \\ $\Rightarrow$ In enrolment: modeling potential target application
+        \item Operational -- Online, performance in specific application environment and specific target population.
+        \\ $\Rightarrow$ In enrolment: no control over conditions
+      \end{itemize}
+
+      \textbf{Technology Evaluation}. Mistakes are testing on training set and overtraining. Phases:
+      \begin{itemize}
+        \item \textbf{Phase 1 Training} -- Database A is available. It is split into training and validation tests. System is trained on it.
+        \item \textbf{Phase 2 Testing} -- The sequestered data is newly made available and used to test biometric matchers. The scores obtained are used to estimate FMR and FNMR (FAR and FRR for positive authentication) as a function of threshold T.
+      \end{itemize}
+
+      \textbf{Technical Performance Evaluation}: assesses \emph{accuracy} and \emph{usability}. Performance, Accuracy, Enrollment and Response time, Throughtput, Scalability.
+      \begin{itemize}
+        \item Matching errors: \textbf{FMR} and \textbf{FNMR}:
         \begin{itemize}
           \item False Match Rate \textbf{FMR} -- proportion of impostor attempt samples falsely declared to match the compared nonself template (number of impostor FMs / number of impostor attempts)
           \item False Non-Match Rate \textbf{FNMR} -- proportion of genuine attempt samples falsely declared not to match the template of the same characteristic from the same user submitting the sample (number of genuine FNMs / number of genuine attempts)
           \item \textbf{Calculation}: Create biometric templates using training data set. Define a test set with genuine and impostor trials. Run test and group genuine and impostor scores. Choose threshold value T and calculate FMR(T) and FNMR(T).
         \end{itemize}
-        \item \textbf{FAR} and \textbf{FRR}:
+        \item Decision error rates: \textbf{FAR} and \textbf{FRR}:
         \begin{itemize}
           \item False Accept Rate \textbf{FAR} -- Proportion of imposters accepted (security breaches)\\\textbf{FAR}=FMRx(1-FTA)
           \item False Reject Rate \textbf{FRR} -- Proportion of genuine users rejected (inconvenience)\\\textbf{FRR}=FTA+FNMRx(1-FTA)
+        \end{itemize}
+        \item Data acquisition errors: \textbf{FTA} and \textbf{FTE}:
+        \begin{itemize}
+          \item Failure to Acquire Rate \textbf{FTA} -- Proportion that cannot be verified (does not process a certain biometric)
+          \item Failure to Enroll Rate \textbf{FTE} -- Proportion that cannot be enrolled (system fails to complete the enrolment process, due to bad quality)
         \end{itemize}
         \item \textbf{DET} and \textbf{ROC} curves:
         \begin{itemize}
@@ -249,17 +287,11 @@
           \item Convenience -- Correct Accept Rate \textbf{CAR}=1-FRR
           \item Security -- Correct Reject Rate \textbf{CRR}=1-FAR
         \end{itemize}
-        \item \textbf{FTA} and \textbf{FTE}:
-        \begin{itemize}
-          \item Failure to Acquire Rate \textbf{FTA} -- Proportion that cannot be verified (does not process a certain biometric)
-          \item Failure to Enroll Rate \textbf{FTE} -- Proportion that cannot be enrolled (system fails to complete the enrolment process, due to bad quality)
-        \end{itemize}
         \item \textbf{Performance measures for identification}:
         \begin{itemize}
           \item Correct Identification Rate (\textbf{CIR}) -- proportion of identification transactions by users in the system s.t. the user's identifier is among the ones returned.
           \item Cumulative Match Characteristic (\textbf{CMC}) -- Identification rate as function of K.
         \end{itemize}
-
       \end{itemize}
       \begin{figure}[htp]
         \centering
@@ -267,6 +299,68 @@
           \caption{Threshold T, FRR and FAR}
           \label{fig:frrfar}
       \end{figure}
+
+      \textbf{Planning the Evaluation}
+      \begin{itemize}
+        \item What exactly is the evaluation trying to determine?
+        \item Which is the appropriate evaluation type: technology, scenario, or operational?
+        \item Determine information about the system -- Needed to determine data collection procedures:
+        \begin{itemize}
+          \item Logs transaction information
+          \item Saves sample images or features for each transaction
+          \item Returns matching scores or just accept/reject decisions
+          \item Image quality and matching decision thresholds for target application
+          \item Expected error rates
+          \item Factors that influence performance (Population demographics, Application, User physiology, User behaviour, User appearance, Environmental Influences, Sensor and hardware, User Interface). \emph{Classes}:
+          \begin{itemize}
+            \item Independent variables, to observe effect they may have
+            \item Controlled factors (experimental conditions, unchanging)
+            \item \emph{Randomized} factors
+            \item Ignored factors (considered to have no effect), which will be ignored
+          \end{itemize}
+        \end{itemize}
+        \item Data collection\\
+        Test size:
+        \begin{itemize}
+          \item Rule of 3 -- $p\approx 3/N$ for 95\% confidence level, $N$ trials, $p$ error rate
+          \item Rule of 30 -- To be 90\% confident that the true error rate is within $\pm$30\% of the observed error rate, there must be at least 30 errors.
+        \end{itemize}
+        Definitions: \emph{Corpus} (raw data samples or features); \emph{Database} (information about those images and the volunteers who produced them)
+      \end{itemize}
+
+      \textbf{Scenario Evaluation}.
+      \begin{itemize}
+        \item Objectives:
+        \begin{itemize}
+          \item Show attainable level of performance
+          \item Determine the feasibility of demonstrating satisfactory performance through testing
+          \item Encourage more testing to be sponsored and promote methodologies
+        \end{itemize}
+        \item Results presented include: FTE and FTA, FMR and FNMR, FAR and FRR; Throughput rates of users (live) and of matching algorithm (offline); Sensitivity to environmental conditions and differences in performance over different classes of users.
+      \end{itemize}
+
+      \textbf{Enrolment Evaluation} -- UKPS Biometric Enrollment Trial\\
+      Trial commissioned by the UK Passport Service in partnership with the Home Office Identity Cards Programme and the Driver and Vehicle Licensing Agency (DVLA). Eight months; involved 10,000 volunteers. Research was undertaken by Atos Origin.
+
+      \textbf{Selecting a Biometric} -- Selecting a biometric involves not only accuracy (e.g. good looking devices outsell ugly). Biometrics Checklist:
+      \begin{itemize}
+        \item Background Work
+        \item Enrolment Issues
+        \item Technical Considerations
+        \item Cost Issues
+        \item User-related considerations
+        \item Operational Issues
+        \item System Administration Concerns
+      \end{itemize}
+
+      \textbf{Performance of Forensic Biometrics}
+      \begin{itemize}
+        \item Likelihood ratio (LR) summarises forensic expert's statement
+        \item Performance evaluation of LR method can be obtained from the observed strength of evidence (LR) when $H_0$ is true and when $H_1$ is true.
+        \item Evaluation should be carried out using a relevant population database
+        \item Performance characteristics (e.g., Tippett plots I and II as well as Proportions Trade-Off (PTO) plot)
+        \item Performance metrics provide a single numerical value that describes the performance in terms of e.g., accuracy, discriminating power, etc. of the LR method (e.g., probabilities of misleading evidence (PME$H_0$ and PME$H_1$), equal proportion probability (EPP))
+      \end{itemize}
     \newpage
   \subsection*{Miscellaneous}
     \input{fspk}
@@ -290,7 +384,120 @@
         \item \textbf{Ear}: Identify ear traces
         \item \textbf{Gait}: How people walk. Identification of burglars from security/surveillance camera recordings.
       \end{itemize}
+      \newpage
     \subsubsection*{13. Biometric Standards}
+      \textbf{Why standards?} For interoperability and data interchange between applications and systems. Included are: APIs, file formats, biometric templates, template protection techniques, related application/implementation profiles, methodologies for conformity.
+      \begin{itemize}
+        \item Interoperability
+        \item Vendor independence
+        \item Cost effectiveness
+        \item Increased competition
+        \item Reduced risk
+      \end{itemize}
+
+      \textbf{Standardisation Bodies}
+      \begin{itemize}
+        \item \textbf{Industry}:\\
+        Industry Consortia: BioAPI, BC (Biometric Consortium)
+        \item \textbf{National} Standardization Bodies:\\
+        ANSI (American National Standards Institute), SNV (Swiss Association for Standardization)
+        \item \textbf{International}:
+        \begin{itemize}
+          \item ISO/IEC (International Organization for Standardization/International Electrotechnical Commission)
+          \item ICAO (International Civil Aviation Organization)
+          \item EU: CEN/ISSS (European Committee for Standardization (Comité Européen de Normalisation)/ Information Society Standardization System)
+        \end{itemize}
+      \end{itemize}
+      \textbf{Biometrics Based Standards} -- \emph{Subcommittee 37 (SC37) on Biometrics}
+      \begin{itemize}
+        \item Established by ISO/IEC Joint Technical Committee 1 (JTC 1) in June 2002
+        \item an international venue to accelerate and harmonize formal international biometric standardization
+        \item to ensure that future standards based systems and applications are more interoperable, scalable, reliable, usable, and secure
+        \item \textbf{Working Groups} (WG):
+        \begin{itemize}
+          \item WG 1 -- Harmonized Biometric Vocabulary and Definitions (what we mean by the words)
+          \item \textbf{WG 2 -- Biometric Technical Interfaces (how data is transferred in a biometric system)}. \emph{BioAPI} is intended to provide a high-level generic biometric authentication model suited for any biometric technology. Covers Enrollment, Verification, and Identification. Includes a database interface to allow a biometric service provider (BSP) to manage the identification population for optimum performance. Also provides primitives for Capturing on a client and Enrollment, Verification, and Identification on a server.\\
+          Benefits:
+            \begin{itemize}
+              \item Easy substitution of biometric technologies
+              \item Use of biometric technology across multiple applications
+              \item Easy integration of multiple biometrics using the same interface
+              \item Rapid application development - increased competition (tend to lower costs)
+            \end{itemize}
+          \item \textbf{WG 3 -- Biometric Data Interchange Formats (how biometric characteristics are encoded in an interoperable way)}.\\
+          \emph{Projects:}
+          \begin{itemize}
+            \item 19794-1 -- Framework
+            \item 19794-2 -- Finger Minutiae Data
+            \item 19794-3 -- Finger Pattern Spectral Data
+            \item 19794-4 -- Finger Image Data
+            \item 19794-5 -- Face Image Data
+            \item 19794-6 -- Iris Image Data
+            \item 19794-7 -- Signature/Sign (Behavioral) Data
+            \item 19794-8 -- Finger Pattern Skeletal Data
+            \item 19794-9 -- Vascular Image Data
+            \item 19794-10 -- Hand Geometry Silhouette Data
+            \item 19794-11 -- Signature/Sign Processed Dynamic data
+            \item 19794-12 -- Face Identity Data
+            \item 19794-13 -- Voice Data
+            \item 19794-14 -- DNA Data
+            \item 19794-15 -- Hand Crease Data
+          \end{itemize}
+
+          \emph{Layers of standards:}
+          \begin{itemize}
+            \item \textbf{Layer 1}: Data Formats -- The Biometric Data Block (BDB). Defines formats for the digital representation of measurements of various physical characteristics. Can be \emph{images} and/or extracted \emph{features}.
+            \item \textbf{Layer 2}: Meta-data -- Common Biometrics Exchange File Format (CBEFF) is an emerging standard for sharing biometrics in raw signal or template form. The standard is recommended for interchange between different components of a system or across systems.\\
+            \textbf{Biometric Information Record} (BIR) is an encapsulating unit for storage and transfer of BDBs and consists of BDB + Metadata. \emph{Enrolment} is capturing biometric data into a BIR and storing it.\\
+            Data described by CBEFF includes:
+            \begin{itemize}
+              \item Security information in the form of digital signatures and data encryption
+              \item Identification of biometric type
+              \item Information about the biometric sample
+              \item Actual biometric data
+            \end{itemize}
+            \item \textbf{Layer 3}: System integration -- BioAPI
+            \item \textbf{Layer 4}: Interworking systems -- BIP
+            \item Societal and Legal issues
+            \item Vocabulary, Testing and Evaluation
+          \end{itemize}
+          \item WG 4 -- Biometric Functional Architecture and Related Profiles (selecting the right options in the standards for a specific application)
+          \item WG 5 -- Biometric Testing and Reporting (testing that systems will perform)
+          \item WG 6 -- Cross-Jurisdictional and Societal Aspects (taking care of the legal and societal aspects)
+        \end{itemize}
+      \end{itemize}
+
+      \textbf{ICAO Recommendations for Biometric Passports}
+      \begin{itemize}
+        \item UN agency: managing civil aviation. Defining biometric requirements for travel documents
+        \item ICAO selected biometrics as the technique to verify association between travel documents and the owner. Issues:
+        \begin{itemize}
+          \item Interoperability
+          \item Reliability of biometric data
+          \item Appropriate methods of electronic storage and transmission
+          \item Security from tampering and for citizen privacy protection
+        \end{itemize}
+        \item ICAO Recommendations:
+        \begin{itemize}
+          \item Adaptation of ICAO recommendations for ePassport: Storage on ISO 14443 conform Chip; Primary biometric feature FACE (FINGER and IRIS optional)
+          \item Interoperability based on defined ISO standards based interfaces and data
+          interchange formats
+        \end{itemize}
+        ICAO Technical Reports:
+        \begin{itemize}
+          \item Describe how biometrics and chip technology schould be applied in Machine Readable
+          Travel Documents (MRTDs).
+          \item Provide implementation specialists with the specifications needed to achieve global interoperability in issuance and inspection
+        \end{itemize}
+
+        Biometric ePassport Specifications (since 2004)
+        \begin{itemize}
+          \item Contactless IC Chip
+          \item Logical Data Structure
+          \item PKI to digital sign data
+          \item Facial Recognition (Iris and Fingerprint optional)
+        \end{itemize}
+      \end{itemize}
     \subsubsection*{14. Securing Biometric Data and Biometric Encryption}
     \subsubsection*{15. Biometrics in Identity Documents}
     \subsubsection*{16. Privacy and Legal Issues}
