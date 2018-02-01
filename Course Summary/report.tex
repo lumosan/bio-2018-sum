@@ -360,29 +360,63 @@
         \item \textbf{Non-Pegged} -- Wrist reference, radial distance function (from wrist reference)
       \end{itemize}
     \subsubsection*{06. Palmprint and Palm Veins}
-      \textbf{Generalities}:
+      \textbf{Palmprint}:
       \begin{itemize}
-        \item 
+        \item \textbf{Sensing}
+        \begin{itemize}
+          \item Regions: interdigital, thenar and hypothenar
+          \item Major creases: distal transverse crease (heart), proximal transverse crease (head), radial transverse crease (life)
+          \item Palmprint: Ridges, minutiae and pores
+          \item Preprocessing: Global thresholding; Contour-following algorithm; Reference points
+        \end{itemize}
+        \item \textbf{Region of Interest (ROI)} -- Subimages of regions of interest:  Little-finger, Ring-finger, Middle-finger, Index-finger, Thumb, Palm,
+        \item \textbf{Palm and finger strips features}
+        \begin{itemize}
+          \item Eigenfingers and eigenpalm features (PCA)
+          \item High recognition accuracy for some fingers (esp. middle and ring, not for thumb)
+          \item Palm: >98\% recognition for >70 features. Local minutiae extraction and MCC.
+          \item Quality definitions:
+          Local clarity score; Ridge valley uniformity; Orientation certainty level; Orientation flow; Frequency domain analysis; Radial power spectrum; Gabor filters (several variants)
+        \end{itemize}
       \end{itemize}
 
-      \textbf{Sensing}:
+      \textbf{Palm Veins}:
       \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
+        \item \textbf{Properties, sensing and imaging}
+        \begin{itemize}
+          \item Cross section through the skin. Thick, hairless skin
+          \item Veins less numerous but more distinct in dorsal imaging than palm imaging
+          \item Near-Infra-Red (NIR) sensing
+          \item \textbf{Imaging}:
+          \begin{itemize}
+            \item Light reflection method -- Near-infrarred light (LED) reflected (in not-vein?); Image sensor (CCD cam)
+            \item Light transmission method -- Near-infrarred light (LED) goes through (vein?); Image sensor (CCD cam)
+          \end{itemize}
+          \item Vascular patterns not apparent under visual light. Infra-red light causes veins (hemoglobin) to appear black
+          \item Images depend on temperature
+        \end{itemize}
+        \item \textbf{Hand-vein recognition} -- Invariant, can be used together with fingerprints, can be used for left and right hands...
+        \begin{itemize}
+          \item \textbf{Skeletonization}: (a) Original far infrared image of the back of the hand, (b) Extraction of the region of interest, (c) Image enhancement of the region of interest, (d) Extraction of the vein lines, (e) Skeletonization of the vein lines\\ Minutiae-like approach: Cross- and end-points detection. Can be done by:
+          \begin{itemize}
+            \item Crossing number (counting \emph{pixel neighbors})
+            \item Convolution Based Minutiae Extraction: Convolving skeleton image with a single bi-dimensional filter $G$ and two look up tables $Te$ and $Tb$ (sets of filter response values for endpoints and bifurcations, respectively)
+          \end{itemize}
+          \item \textbf{Principal Component Analysis (PCA)}
+          \item \textbf{Linear Discriminant Analysis (LDA)} (Fisher-veins)
+          \item \textbf{Radon Transform}
+          \item \textbf{Complex Matched Filtering}
+          \item \textbf{Local Texture Patterns}
+          \begin{itemize}
+            \item Local Binary Patterns (LBPs)
+            \begin{itemize}
+              \item Region of Interest (ROI): Find hand contour; Find reference points between fingers (determine left or right hand); Draw a square based on reference points; Re-scale to average size
+              \item Pre-processing, to enhance veins. Methods: Adaptive Histogram Equalization, Morphological Background Removal, Directional Filter Enhancement
+              \item Code (texture micro-pattern) computer per pixel (Gray-level difference encoded)
+            \end{itemize}
+            \item Local Derivative Patterns (LDPs)
+          \end{itemize}
+        \end{itemize}
       \end{itemize}
       \newpage
   \subsection*{Behavioral Characteristics}
