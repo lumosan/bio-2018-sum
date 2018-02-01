@@ -148,28 +148,69 @@
     \subsubsection*{12. Multimodal Biometrics}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item \emph{Desired characteristics}: Universality; Uniqueness; Permanence; Collectability; Performance (achievable recognition accuracy, resources required, operating environment); Acceptability; Circumvention (how easily can it be spoofed?)
+        \item Every biometric characteristic has some limitations $\Rightarrow$ \emph{Solution}: \emph{Multimodal Biometrics}
+        \item \textbf{Multimodality} (combine evidence from multiple traits)
+        \begin{itemize}
+          \item High cost; Longer verification time
+          \item Permit choice of biometric; Increase population coverage, reduce failure to enroll; Enhance performance; Improve resilience to spoofing
+        \end{itemize}
       \end{itemize}
 
-      \textbf{Sensing}:
+      \textbf{Classification of biometrics}:
       \begin{itemize}
-        \item 
+        \item \textbf{Unimodal} (\emph{most restrictive}) -- subset of a unibiometric system that uses a single instance (snapshot), a single representation and a single matcher for recognition
+        \item \textbf{Unibiometric} -- uses a single biometric identifier
+        \item \textbf{Multi-biometric} -- uses more than one independent biometric identifier (e.g. fingerprint and face)
+        \item \textbf{Multimodal} (\emph{most general}) -- superset of a multi-biometric system that may use more than one correlated biometric measurement (e.g. multiple impressions of a finger)
       \end{itemize}
 
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
+      \textbf{What to integrate?}:
+        \begin{itemize}
+          \item \textbf{Multiple sensors} for same biometric (e.g. optical and solid-state sensors for fingerprints)
+          \item \textbf{Multiple biometrics (traits)} -- Each sensor senses a different biometric. Improves system accuracy and matching speed
+          \item \textbf{Multiple samples} of same biometric, e.g. multiple impressions of the same finger
+          \item \textbf{Multiple instances}: e.g. fingerprints from two or more fingers.
+          \item \textbf{Multiple representations} and matching algorithms for the same biometric -- combines different approaches to feature extraction and matching of single biometric.
+        \end{itemize}
 
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
+      \textbf{Integration strategies}:
+        \begin{itemize}
+          \item \textbf{Integration architecture} -- Combination of classifiers:
+          \begin{itemize}
+            \item Parallel
+            \begin{itemize}
+              \item Early integration (\emph{Feature} extraction)
+              \item Late integration (\emph{Matching Score} or \emph{Decision})
+            \end{itemize}
+            \item Serial
+            \item Hierarchical
+          \end{itemize}
+          \item \textbf{Levels of fusion}:
+          \begin{itemize}
+            \item \textbf{Before matching} (\emph{often not possible}):
+            \begin{itemize}
+              \item \textbf{Data/Sensor Level} (combine raw sensor outputs) -- Mosaicing for fingerprints, 2-3D faces
+              \item \textbf{Feature Level} (combine extracted features)
+            \end{itemize}
+            \item \textbf{After matching}:
+            \begin{itemize}
+              \item Dynamic Classifier Selection
+              \item \textbf{Classifier Fusion}:
+              \begin{itemize}
+                \item \textbf{Score Level} (combine matching scores, \emph{most popular}, \emph{Classification} or \emph{Combination} approaches possible)
+                \item \textbf{Rank Level} -- Consolidates the ranks associated with every subject. Highest rank (best rank assigned to an individual by any of the classifiers); Borda count (number of identities whose ranks are worse than the individual's rank)
+                \item \textbf{Decision Level} (combine identity decisions, \emph{least informative}). Possible schemes: AND, OR, majority voting\\
+                \emph{Support Vector Machines} find the hyperplane that gives the largest minimum distance to the training samples
+              \end{itemize}
+            \end{itemize}
+          \end{itemize}
+          \item \textbf{Fusion strategy}
+          \begin{itemize}
+            \item \emph{Quality based}: Multi-classifier Stacking (1 signal, several features sets extracted), Multi-biometrics Stacking (several signals)
+            \item \emph{Fusion after normalization} (Score normalization, weighted sum, decimal scaling, Z score, double sigmoid function...)
+          \end{itemize}
+        \end{itemize}
   \subsection*{Miscellaneous}
     \subsubsection*{13. Quality and Ageing in Classication of Biometric Data}
 
