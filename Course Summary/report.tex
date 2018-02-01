@@ -64,28 +64,55 @@
     \subsubsection*{10. DNA}
       \textbf{Generalities}:
       \begin{itemize}
-        \item 
+        \item \emph{Biological traces}
+        \item DNA \textbf{unique} to every individual, only shared by \textbf{identical twins}. Can be obtained from many sources. Does not change during life, but can be damaged by chemical and physical events and by random mutations.
+        \item Invasive collection of samples. Money and time expensive. Privacy concerns?
+        \item Requires \textbf{tangible} physical sample and matching is not done in real-time. Currently not completely automated.
+        \item \emph{Biological background}: All cells of an organism contain same DNA content. A \textbf{chromosome} is the visible state of genetic material. Humans have 23 pairs of chromosomes. Genes are made of \textbf{DeoxyriboNucleic Acid} (DNA).\\
+        \textbf{DNA}: Double helix is the natural form in which DNA is found within nucleus of the cells. DNA is a polymer (long string of simple repeating units). Repeating units are called \textbf{nucleotides} (four types: \textbf{A}denine, \textbf{C}ytosine, \textbf{G}uanine, \textbf{T}hymine). The complete DNA molecule consists of two of these strands of the four bases.
+        \item Components:
+        \begin{itemize}
+          \item Nucleotides
+          \item Hydrogen bonds (electrostatic connection): A-T; C-G
+        \end{itemize}
       \end{itemize}
 
-      \textbf{Sensing}:
+      \textbf{Concepts}:
       \begin{itemize}
-        \item 
+        \item Most DNA is the same accross people, but some varies: \textbf{Short Tandem Repeats (STRs)} in non-coding sequences.
+        \item \textbf{Polymerase Chain Reaction (PCR)} -- Method of amplifying a specific region of the genome (from 1 to over 1 Billion copies)
+        \begin{itemize}
+          \item \textbf{Locus} -- region of the genome being examined \todo[inline]{??}
+          \item \textbf{Allele} -- State of the genetic variation being examined. STRs is the nb. of repeat units, SNPs is the base sequence at the site.
+          \item Chromosomes are \textbf{paired}: Homozygous (Heterozygous) -- Alleles identical (differ) on each chromosome
+          \item \textbf{Process}:
+          \begin{enumerate}
+            \item DNA molecule with target sequence is heated to denature it
+            \item When the mixture cools, primers bond to the single stranded DNA
+            \item dNTPs and DNA polymerase are added to synthesize two new strands of DNA
+            \item Process is repeated, many copies can be produced in a short time
+          \end{enumerate}
+        \end{itemize}
+        \item \textbf{Short Tandem Repeats (STRs)} -- Length Variation\\
+        These repeat regions usually bounded by specific \emph{restriction enzyme} sites $\Rightarrow$ possible to cut out segment of chromosome
+        \item \textbf{Single Nucleotide Polymorphisms (SNPs)} -- Sequence Variation; insertions/deletions
+        \item \textbf{Capillary Electrophoresis} -- Separates the fragments by drawing them towars a positively charged pole. Shortest fragments move faster, therefore their order reflects their size. Laser light activates the fluorescent tags as the fragments pass a detection window, producing a color readout that is translated into a sequence.
+        \todo[inline]{ddNTP? Locus? watch a video on this whole thing? :/}
       \end{itemize}
 
-      \textbf{Feature extraction}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
+      \textbf{DNA Analysis steps}:
+      \begin{enumerate}
+        \item Collection: Blood, saliva, semen, urine, hair, teeth, bone, tissue
+        \item Specimen Storage
+        \item Extraction
+        \item Quantitation
+        \item Genotyping
+        \item Interpretation of results
+        \item Database (storage and searching)
+      \end{enumerate}
 
-      \textbf{Templates}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
-
-      \textbf{Matching (comparison)}:
-      \begin{itemize}
-        \item 
-      \end{itemize}
+      \textbf{Applications}:
+        Forensics, Paternity testing, Historical investigations, Missing persons investigations, Mass disasters
   \subsection*{Synthetic Biometric Data Generation}
     \subsubsection*{11. Synthesis of Fingerprints}
       \textbf{Synthetic Fingerprint Generation}: To automatically create large databases of fingerprints, allowing to train, test, optimize and compare algorithms. Collecting fingerprints is expensive (money and time) and problematic (privacy legislation).
@@ -211,6 +238,13 @@
           \item Challenges: Forensic Sketch Recognition, Facial Aging, Facial Marks, Unconstrained Facial recognition
           \item De-identification: Blurring, pixelation
           \item Near infra-red to Visible Light images
+        \end{itemize}
+        \item \textbf{DNA}: Very used in forensics to match crime scene evidence to individuals.
+        \begin{itemize}
+          \item DNA profiles from a single region (Locus); DNA lineup of the \emph{suspects}
+          \item Uses: Identify a person; exclude a suspect; link suspect, victim and crime scene; link weapon to victim; link witness to scene; (dis)prove alibi; reconstruct scene; provide investigative leads.
+          \item \emph{Innocence Project} -- To exonerate falsely incarcerated individuals.
+          \item Missing persons investigation and mass disasters -- Only possible method to identify remains in some cases. Time is the biggest enemy. Family members can be used to identify remains.
         \end{itemize}
         \item \textbf{Ear}: Identify ear traces
         \item \textbf{Gait}: How people walk. Identification of burglars from security/surveillance camera recordings.
